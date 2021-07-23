@@ -49,5 +49,34 @@
 ![image](https://user-images.githubusercontent.com/44131347/126808851-2e3a2f86-5c31-4cb5-a867-29ae2db5cdb5.png)
 
 ## Excercise 0.5
+```sh
+title Visits web flow
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server->browser: Response code 302
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server->browser: HTML code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server->browser: spa.js
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{ content: "text", date: "2019-05-23" }, ...]
+
+note over browser:
+browser renders a list of notes
+end note
+```
+
+-------------------------
+
+![image](https://user-images.githubusercontent.com/44131347/126811390-5b4f46b3-9881-491b-a2d0-0a429132aaaf.png)
 
 ## Excercise 0.6
