@@ -80,3 +80,24 @@ end note
 ![image](https://user-images.githubusercontent.com/44131347/126811390-5b4f46b3-9881-491b-a2d0-0a429132aaaf.png)
 
 ## Excercise 0.6
+
+```sh
+title Submit notes on SPA
+
+actor A
+
+A->browser: typing on input field and click save
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server->browser: Response code 200
+
+note over browser:
+browser user javascript to fetch 
+the notes directly from server
+end note
+
+browser->A: Fetch and update the notes from server
+```
+
+![image](https://user-images.githubusercontent.com/44131347/126856026-c1dbe11f-4fd5-422c-aeef-7b5d402efe52.png)
+
