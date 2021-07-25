@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Anecdote from "./components/Anecdote";
 
 const App = () => {
   const [anecdotes, setAnecdotes] = useState([
@@ -27,27 +28,41 @@ const App = () => {
   ]);
 
   const [selected, setSelected] = useState(0);
-  const [vote, setVote] = useState(anecdotes[selected].vote);
+  // const [vote, setVote] = useState(anecdotes[selected].vote);
 
   const random = () => Math.floor(Math.random() * anecdotes.length);
   const nextAnecdote = () => setSelected(random);
 
   const addVote = () => {
-    setVote(vote + 1);
-    anecdotes[selected].vote += 1;
+    // setVote(vote + 1);
+    // anecdotes[selected].vote += 1;
+    // setAnecdotes({
+    //   ...anecdotes,
+    //   text: anecdotes[selected].text,
+    //   vote: anecdotes[selected].vote + 1,
+    // });
+
+    // setAnecdotes([
+    //   ...anecdotes,
+    //   {
+    //     ...anecdotes,
+    //     vote: anecdotes[selected].vote + 1,
+    //   },
+    // ]);
+
+    console.log(anecdotes);
   };
 
   return (
     <div>
       <h1>Anecdote of the day</h1>
-      <p>{anecdotes[selected].text}</p>
-      <p>has {anecdotes[selected].vote} votes</p>
+      <Anecdote anecdotes={anecdotes[selected]} />
+
       <button onClick={addVote}>Vote</button>
       <button onClick={nextAnecdote}>Next</button>
+
       <h1>Anecdote with most votes</h1>
-      // onprogress
-      <p>{anecdotes[selected].text}</p>
-      <p>has {anecdotes[selected].vote} votes</p>
+      <Anecdote anecdotes={anecdotes[selected]} />
     </div>
   );
 };
