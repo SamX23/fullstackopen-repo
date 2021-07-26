@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Anecdote from "./components/Anecdote";
 
 const App = () => {
@@ -27,30 +27,15 @@ const App = () => {
     },
   ]);
 
+  const newAnecdotes = [...anecdotes];
   const [selected, setSelected] = useState(0);
-  // const [vote, setVote] = useState(anecdotes[selected].vote);
 
   const random = () => Math.floor(Math.random() * anecdotes.length);
   const nextAnecdote = () => setSelected(random);
 
   const addVote = () => {
-    // setVote(vote + 1);
-    // anecdotes[selected].vote += 1;
-    // setAnecdotes({
-    //   ...anecdotes,
-    //   text: anecdotes[selected].text,
-    //   vote: anecdotes[selected].vote + 1,
-    // });
-
-    // setAnecdotes([
-    //   ...anecdotes,
-    //   {
-    //     ...anecdotes,
-    //     vote: anecdotes[selected].vote + 1,
-    //   },
-    // ]);
-
-    console.log(anecdotes);
+    newAnecdotes[selected].vote += 1;
+    setAnecdotes(newAnecdotes);
   };
 
   return (
