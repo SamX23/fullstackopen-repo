@@ -1,12 +1,12 @@
 const Course = (course) => {
   return (
     <>
-      <nav>{course.name}</nav>
+      <h1>{course.name}</h1>
       <main>
         {course.map((item) => {
-          <h1>{item.name}</h1>;
-          <h2>{item.exercises}</h2>;
-          <p>{item.id}</p>;
+          <p key={item.id}>
+            {item.name} {item.exercises}
+          </p>;
         })}
       </main>
     </>
